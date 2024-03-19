@@ -67,6 +67,10 @@
  *   |------|---------------:|
  *   |Venus |         50 115 |
  *
+ *   | 한글 |
+ *   |------|
+ *   | 🤔   |
+ *
  * @example
  *   {"gfm": true, "label": "input", "name": "not-ok.md"}
  *
@@ -206,6 +210,7 @@
 import {ok as assert} from 'devlop'
 import {phrasing} from 'mdast-util-phrasing'
 import pluralize from 'pluralize'
+import stringWidth from 'string-width';
 import {lintRule} from 'unified-lint-rule'
 import {pointEnd, pointStart} from 'unist-util-position'
 import {SKIP, visitParents} from 'unist-util-visit-parents'
@@ -252,6 +257,12 @@ const remarkLintTablePipeAlignment = lintRule(
       // Find max column sizes.
       /** @type {Array<number>} */
       const sizes = []
+
+      // NOTE: Workarounds to properly handle fullwidth characters (i.e. CJK, emojis, etc)
+      for (const info of entries) {
+        if (!info.size) { continue }
+        info.size.middle = stringWidth(value.substring(info.size.leftPoint.offset, info.size.leftPoint.offset + info.size.middle))
+      }
 
       for (const info of entries) {
         if (info.size) {
