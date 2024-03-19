@@ -67,6 +67,10 @@
  *   |------|---------------:|
  *   |Venus |         50 115 |
  *
+ *   | abc |
+ *   |:---:|
+ *   |     |
+ *
  * @example
  *   {"gfm": true, "label": "input", "name": "not-ok.md"}
  *
