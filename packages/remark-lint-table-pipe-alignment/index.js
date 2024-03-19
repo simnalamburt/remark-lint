@@ -71,6 +71,19 @@
  *   |:---:|
  *   |     |
  *
+ *    abc | abc | a!c
+ *   :---:|:---:|:---:
+ *   x    |x    |x
+ *    x   | x   | !
+ *     x  |  x  |  !
+ *      x |   x |   x
+ *       x|    x|    x
+ *        |     |
+ *
+ *    !bc |
+ *   -----|
+ *    !   |
+ *
  * @example
  *   {"gfm": true, "label": "input", "name": "not-ok.md"}
  *
