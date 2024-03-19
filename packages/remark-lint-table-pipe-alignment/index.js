@@ -115,12 +115,10 @@
  *   1:10: Unexpected unaligned cell, expected aligned pipes, add `1` space
  *   2:5: Unexpected unaligned cell, expected aligned pipes, add `6` spaces (or add `-` to pad alignment row cells)
  *   2:10: Unexpected unaligned cell, expected aligned pipes, add `4` spaces (or add `-` to pad alignment row cells)
- *   2:12: Unexpected unaligned cell, expected aligned pipes, add `4` spaces (or add `-` to pad alignment row cells)
- *   2:16: Unexpected unaligned cell, expected aligned pipes, add `3` spaces (or add `-` to pad alignment row cells)
+ *   2:16: Unexpected unaligned cell, expected aligned pipes, add `7` spaces (or add `-` to pad alignment row cells)
  *   2:18: Unexpected unaligned cell, expected aligned pipes, add `14` spaces (or add `-` to pad alignment row cells)
  *   3:15: Unexpected unaligned cell, expected aligned pipes, add `5` spaces
- *   3:17: Unexpected unaligned cell, expected aligned pipes, add `3` spaces
- *   3:22: Unexpected unaligned cell, expected aligned pipes, add `3` spaces
+ *   3:22: Unexpected unaligned cell, expected aligned pipes, add `6` spaces
  *   3:24: Unexpected unaligned cell, expected aligned pipes, add `9` spaces
  *
  * @example
@@ -290,15 +288,6 @@ const remarkLintTablePipeAlignment = lintRule(
 
         if (info.align === 'right') {
           left = difference
-        } else if (info.align === 'center') {
-          // Maximum number of spaces we would want on the left.
-          const max = Math.floor((sizes[info.column] - info.size.middle) / 2)
-
-          if (info.size.right !== undefined && max > info.size.right) {
-            right = max - info.size.right
-          }
-
-          left = difference - right
         } else {
           right = difference
         }
