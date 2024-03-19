@@ -286,15 +286,6 @@ const remarkLintTablePipeAlignment = lintRule(
 
         if (info.align === 'right') {
           left = difference
-        } else if (info.align === 'center') {
-          // Maximum number of spaces we would want on the left.
-          const max = Math.floor((sizes[info.column] - info.size.middle) / 2)
-
-          if (info.size.right !== undefined && max > info.size.right) {
-            right = max - info.size.right
-          }
-
-          left = difference - right
         } else {
           right = difference
         }
